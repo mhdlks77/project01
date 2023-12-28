@@ -1,0 +1,83 @@
+.UserDisplay{
+    
+}
+
+.user-cards-container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    text-align: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.user-card{
+    outline: 2px solid rgb(149, 105, 105);
+    color: #1B1B1F;
+    width: 100px;
+    min-width: 10%;
+    background-color:rgb(219, 219, 219);
+    border-radius: 10px;
+    margin: 1%;
+}
+
+p{
+    margin: 10px;
+}
+
+.user-form-container{
+    display: flex;
+    justify-content: center;
+}
+
+.user-form{
+    display: block;
+    text-align: center;
+    margin: 5%;
+    width: 60%;
+
+}
+
+input{
+    color:#1B1B1F;
+    background-color:#f2f2f2;
+    padding: 1%;
+    margin: 1%;
+    width: 50%;
+    font-size: medium;
+}
+
+button{
+    color:#1B1B1F;
+    background-color:#f2f2f2;
+    padding: 2%;
+    margin: 2%;
+    border-radius: 0px;
+    width: 15% ;
+    min-width: 85px;
+    border: 1px solid #929292;
+    transition: background-color 0.1s ease;
+}
+
+
+
+select{
+    color:#1B1B1F;
+    background-color:#f2f2f2;
+    padding: 1%;
+    margin: 1%;
+    width: 52.5%;
+    font-size: medium;
+    outline: 0;
+}
+
+.radio-container{
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.input-label{
+    margin-left: 3%;
+
+}

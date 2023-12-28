@@ -1,0 +1,30 @@
+html{
+    background-color:rgb(27, 27, 31);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:rgb(230, 230, 230);
+}
+
+h1{
+    
+}
+
+h2{
+    text-align: center;
+}
+
+.buttons-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+button{
+    border-radius: 8px;
+    background-color: aliceblue;
+    font-size:medium;
+    border: 0px;
+    padding: 6px;
+}
+
+button:hover{
+    background-color: rgb(200, 207, 213);
+}
