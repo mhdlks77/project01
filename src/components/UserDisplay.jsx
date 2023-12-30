@@ -11,15 +11,27 @@ export default function UserDisplay() {
     const [newUser, setNewUser] = useState(new User('', '', '', ''));
     const [userArray, setUserArray] = useState([]);
 
+    const storageArray = JSON.parse(window.localStorage.getItem("userArray"));
+
+
     useEffect(() => {
-        console.log("array in useEffect: " + JSON.stringify(userArray));
+        const localStorageArray = JSON.parse(window.localStorage.getItem("userArray"));
+        if(localStorageArray){
+            setUserArray(localStorageArray);
+        }
+    }, [])
+
+    useEffect(() => {
+        if (userArray.length != 0) {
+            window.localStorage.setItem("userArray", JSON.stringify(userArray))
+        }
     }, [userArray])
+
 
     return (
         <div className="UserDisplay">
             <h2>Users</h2>
             <div className="user-cards-container">
-                {console.log("array before render: " + JSON.stringify(userArray))}
                 {userArray.map((user, key) => {
                     return (
                         <div key={key} className="user-card">
@@ -33,7 +45,7 @@ export default function UserDisplay() {
                 })}
             </div>
             <UserForm newUser={newUser} setNewUser={setNewUser}
-            userArray={userArray} setUserArray={setUserArray}/>
+                userArray={userArray} setUserArray={setUserArray} />
         </div>
     )
 }

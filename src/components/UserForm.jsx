@@ -6,10 +6,6 @@ import User from "../components/User";
 
 const UserForm = ({newUser, setNewUser, userArray, setUserArray}) => {
 
-
-    // const [newUser, setNewUser] = useState(new User('', '', '', '', ''));
-    // const [userArray, setUserArray] = useState([]);
-
     useEffect(() => {
         // console.log("new user: " + newUser.name);
     }, [newUser])
@@ -22,8 +18,7 @@ const UserForm = ({newUser, setNewUser, userArray, setUserArray}) => {
     const onSubmit = (values, actions) => {
         // console.log(values);
         setNewUser((currUser) => ({...currUser, ...values}));
-        setUserArray((currArray) =>[...currArray, values]
-        )
+        setUserArray((currArray) =>[...currArray, values]);
         actions.resetForm();
     }
 
@@ -33,7 +28,7 @@ const UserForm = ({newUser, setNewUser, userArray, setUserArray}) => {
             age: "",
             email: "",
             gender: "",
-            available: ""
+            available: "",
         },
         validationSchema: userSchema,
         onSubmit,
