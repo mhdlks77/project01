@@ -8,22 +8,25 @@ import UserForm from "./UserForm";
 
 export default function UserDisplay() {
 
-    const [newUser, setNewUser] = useState(new User('', '', '', ''));
+    const [newUser, setNewUser] = useState(new User('', '', '', '', '',''));
     const [userArray, setUserArray] = useState([]);
+    const [idCounter, setIdCounter] = useState(1001);
 
-    const storageArray = JSON.parse(window.localStorage.getItem("userArray"));
+    const storageArray = JSON.parse(window.sessionStorage.getItem("userArray"));
 
 
     useEffect(() => {
-        const localStorageArray = JSON.parse(window.localStorage.getItem("userArray"));
-        if(localStorageArray){
-            setUserArray(localStorageArray);
+        const sessionStorageArray = JSON.parse(window.sessionStorage.getItem("userArray"));
+        if(sessionStorageArray){
+            setUserArray((arr) => [...sessionStorageArray]);
         }
+        console.log(newUser.id)
     }, [])
 
     useEffect(() => {
         if (userArray.length != 0) {
-            window.localStorage.setItem("userArray", JSON.stringify(userArray))
+            window.sessionStorage.setItem("userArray", JSON.stringify(userArray));
+            console.log(userArray[userArray.length - 1])
         }
     }, [userArray])
 
@@ -35,17 +38,18 @@ export default function UserDisplay() {
                 {userArray.map((user, key) => {
                     return (
                         <div key={key} className="user-card">
+                            <p>{user.id}</p>
                             <p>{user.name}</p>
                             <p>{user.age}</p>
                             <p>{user.email}</p>
                             <p>{user.gender}</p>
-                            {user.available ? <p>Available</p> : <p>Unavailable</p>}
                         </div>
                     )
                 })}
             </div>
             <UserForm newUser={newUser} setNewUser={setNewUser}
-                userArray={userArray} setUserArray={setUserArray} />
+                userArray={userArray} setUserArray={setUserArray}
+                idCounter={idCounter} setIdCounter={setIdCounter} />
         </div>
     )
 }

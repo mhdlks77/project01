@@ -1,0 +1,17 @@
+html {
+    background: rgb(61, 88, 163);
+    background: linear-gradient(90deg, rgba(61, 88, 163, 1) 0%, rgba(0, 212, 255, 1) 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #27282a;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input{
+    background-color: aliceblue;
+    width: 50%;
+}

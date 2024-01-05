@@ -4,31 +4,25 @@ import { useFormik } from 'formik'
 import { useState, useEffect } from "react";
 import User from "../components/User";
 
-const UserForm = ({newUser, setNewUser, userArray, setUserArray}) => {
-
-    useEffect(() => {
-        // console.log("new user: " + newUser.name);
-    }, [newUser])
-
-    useEffect(() => {
-        // console.log("user array: " + JSON.stringify(userArray));
-    }, [userArray])
+const UserForm = ({ newUser, setNewUser, userArray, setUserArray, idCounter, setIdCounter }) => {
 
 
     const onSubmit = (values, actions) => {
-        // console.log(values);
-        setNewUser((currUser) => ({...currUser, ...values}));
-        setUserArray((currArray) =>[...currArray, values]);
+        setNewUser((currUser) => ({
+            ...currUser,
+            ...values,
+        }));
+        setUserArray((currArray) => [...currArray, values]);
         actions.resetForm();
     }
 
     const { values, touched, errors, isSubmitting, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues: {
+            id: "",
             name: "",
             age: "",
             email: "",
             gender: "",
-            available: "",
         },
         validationSchema: userSchema,
         onSubmit,
@@ -83,26 +77,6 @@ const UserForm = ({newUser, setNewUser, userArray, setUserArray}) => {
                 </select>
                 {errors.gender && touched.gender && <p className="error-msg">{errors.gender}</p>}
                 <br />
-                <div className="radio-container">
-                    <div className="input-label">
-                        <input className="radio"
-                            type="radio"
-                            name="available"
-                            value={values.available}
-                            onChange={handleChange} />
-                        <label>Available</label>
-                    </div>
-                    <br />
-                    <div className="input-label">
-                        <input className="radio"
-                            type="radio"
-                            name="available"
-                            value={values.available}
-                            onChange={handleChange} />
-                        <label>Unavailable</label>
-                        <br />
-                    </div>
-                </div>
                 <button disabled={isSubmitting} type="submit">Add User</button>
             </form>
         </div>
