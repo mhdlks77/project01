@@ -1,11 +1,11 @@
 import * as yup from "yup";
 
-export const loginSchema = yup.object().shape({
+export const signUpSchema = yup.object().shape({
     username: yup
         .string()
         .min(3, "3 Characters minimum")
         .max(25, "25 Characters maximum")
-        .matches(/^[^\s]+$/, "No spaces allowed")
+        .matches(/^[a-zA-Z0-9_.]*$/, "No spaces or special characters except . or _")
         .required("Username is required"),
     password: yup
         .string()
@@ -19,4 +19,9 @@ export const loginSchema = yup.object().shape({
         .string()
         .oneOf([yup.ref("password"), null], "Passwords must match")
         .required("Password confirmation required"),
+});
+
+export const loginSchema = yup.object().shape({
+    username: yup.string().required("Please enter username"),
+    password: yup.string().required("Please enter password"),
 });

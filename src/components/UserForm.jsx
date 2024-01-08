@@ -1,5 +1,5 @@
 import "../styles/UserDisplay.css"
-import { userSchema } from "../validations/userValidation";
+import { userSchema } from "../validations/formValidation";
 import { useFormik } from 'formik'
 import { useState, useEffect } from "react";
 import User from "../components/User";

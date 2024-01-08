@@ -1,0 +1,38 @@
+.navbar {
+    background-color: #2D3250;
+    position: sticky;
+    width: 100%;
+}
+
+.navMenu {
+    display: flex;    
+}
+
+h3 {
+    margin-left: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 1%;
+}
+
+h5 {
+    margin-left: auto;
+    margin-right: 2%;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    height: fit-content;
+}
+
+.link {
+    color: rgb(236, 236, 236);
+    text-decoration: none;
+}
+
+.link:hover{
+    color: #F6B17A;
+    
+}
+
+.link:hover {
+    text-decoration: none;
+}

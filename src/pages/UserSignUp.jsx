@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 import { Formik, Form, Field, ErrorMessage } from "formik"
-import { loginSchema } from "../validations/loginValidation"
-import {} from "../styles/userSignUp.css"
+import { signUpSchema } from "../validations/userValidations"
+import { } from "../styles/userSignUp.css"
 
 export default function UserSignUp() {
 
@@ -10,7 +10,6 @@ export default function UserSignUp() {
 
     const [credentialsArray, setCredetnialsArray] = useState([]);
     const [usernameExists, setUsernameExists] = useState(false);
-
 
     useEffect(() => {
         if (credentialsArray != 0) {
@@ -46,41 +45,62 @@ export default function UserSignUp() {
 
     return (
         <div className="UserSignUp">
-            <Formik
-                initialValues={{
-                    username: '',
-                    password: '',
-                    confirmPassword: ''
-                }}
-                onSubmit={onSubmit}
-                validationSchema={loginSchema}>
-                {({ errors, touched }) => (
-                    <Form className="form">
-                        <Field
-                            type="text"
-                            name="username"
-                            placeholder="Enter your username"
-                            className="input" />
-                        {errors.username && touched.username && <p className="error-msg">{errors.username}</p>}
-                        {usernameExists && <p className="error-msg">username already exists</p>}
-                        <Field
-                            type="password"
-                            name="password"
-                            placeholder="Enter password"
-                            className="input" />
-                        {errors.password && touched.password && <p className="error-msg">{errors.password}</p>}
-                        <Field
-                            type="password"
-                            name="confirmPassword"
-                            placeholder="confirm password"
-                            className="input" />
-                        {errors.confirmPassword && touched.confirmPassword && <p className="error-msg">{errors.confirmPassword}</p>}
-                        <br />
-                        <button type="submit">Sign Up</button>
-                    </Form>
-                )}
-            </Formik>
-            <Link to="/login">Login</Link>
+            <div className="signup-container">
+                <h2>Sign Up</h2>
+                <Formik
+                    initialValues={{
+                        username: '',
+                        password: '',
+                        confirmPassword: ''
+                    }}
+                    onSubmit={onSubmit}
+                    validationSchema={signUpSchema}>
+                    {({ errors, touched }) => (
+                        <Form className="form">
+                            <div className="input-container">
+                                <label htmlFor="username">
+                                    <strong>username:</strong>
+                                </label>
+                                <Field
+                                    type="text"
+                                    name="username"
+                                    id="username"
+                                    placeholder="Enter your username"
+                                    className="input" />
+                                {errors.username && touched.username && <p className="error-msg">{errors.username}</p>}
+                                {usernameExists && <p className="error-msg">username already exists</p>}
+                            </div>
+                            <div className="input-container">
+                                <label htmlFor="username">
+                                    <strong>password:</strong>
+                                </label>
+                                <Field
+                                    type="password"
+                                    name="password"
+                                    id="password"
+                                    placeholder="Enter password"
+                                    className="input" />
+                                {errors.password && touched.password && <p className="error-msg">{errors.password}</p>}
+                            </div>
+                            <div className="input-container">
+                                <label htmlFor="username">
+                                    <strong>confirm password:</strong>
+                                </label>
+                                <Field
+                                    type="password"
+                                    name="confirmPassword"
+                                    placeholder="confirm password"
+                                    className="input" />
+                                {errors.confirmPassword && touched.confirmPassword && <p className="error-msg">{errors.confirmPassword}</p>}
+                            </div>
+                            <button type="submit">Sign Up</button>
+                        </Form>
+                    )}
+                </Formik>
+                <span>
+                    <Link to="/login" className="link-signup">Login</Link>
+                </span>
+            </div>
         </div>
     )
 }

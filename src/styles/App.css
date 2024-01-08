@@ -1,7 +1,11 @@
 html{
-    background-color: #272829;
+    background-color: #7077A1;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color:#D8D9DA;
+}
+
+body{
+    margin: 0;
 }
 
 h1{

@@ -3,26 +3,25 @@ import '../styles/App.css'
 import Count from './Count';
 import UserDisplay from './UserDisplay';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
-import Navbar from './Navbar';
+import NavBar from './Navbar';
 import Home from '../pages/Home';
 import UserLogin from '../pages/UserLogin';
 import UserSignUp from '../pages/UserSignUp';
+import Contact from '../pages/Contact';
 
 function App() {
   const name = "Ali";
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
 
   return (
     <Router>
-      <Navbar />
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact/>}/>
         <Route path="/userdisplay" element={<UserDisplay />} />
         <Route path="/login" element={<UserLogin />} />
         <Route path="/signup" element={<UserSignUp/>}/>
-
       </Routes>
     </Router>
   )

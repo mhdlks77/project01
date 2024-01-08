@@ -1,0 +1,24 @@
+.UserLogin{
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+}
+
+.login-form{
+    width: 50%;
+    margin-top: 2;
+    padding-bottom: 2%;
+    border-radius: 15px;
+    background-color: rgba(23, 41, 41, 0.127);
+    text-align: center;
+}
+
+.positive-msg{
+    color: rgb(98, 185, 88);
+    font-size: small;
+    margin-left:2%;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0%;
+    width: auto;
+}

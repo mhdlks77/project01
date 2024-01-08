@@ -1,17 +1,77 @@
-html {
-    background: rgb(61, 88, 163);
-    background: linear-gradient(90deg, rgba(61, 88, 163, 1) 0%, rgba(0, 212, 255, 1) 100%);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #27282a;
+
+
+.UserSignUp{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
 }
 
-.form{
+.signup-container{
+    width: 30%;
+    margin-top: 0;
+    padding-bottom: 2%;
+    border-radius: 15px;
+    background-color: rgba(23, 41, 41, 0.127);
+    text-align: center;
+
+}
+
+.form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.input{
+.input-container{
+    width: 60%;
+    margin-bottom: 3%;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
+label{
+    margin-left: 2%;
+    font-size: 15px;
+}
+
+.input {
     background-color: aliceblue;
-    width: 50%;
+    color: #27282a;
+    width: 96%;
+    border-radius: 15px;
+    padding: 3%;
+}
+
+.input:focus{
+    background-color: rgb(240, 248, 255,0.7);
+}
+
+.error-msg{
+    color: rgb(133, 66, 66);
+    font-size: small;
+    margin-left:2%;
+    padding: 0%;
+    width: auto;
+}
+
+button{
+    background-color: aliceblue;
+    color:#27282a;
+    border-radius: 15px;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+button:hover{
+    background-color: rgba(216, 216, 216, 0);
+}
+
+.link-signup{
+    color:#27282a;
+    text-decoration: none;
+}
+
+.link-signup:hover{
+    text-decoration: underline;
 }
