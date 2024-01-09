@@ -8,21 +8,33 @@ import Home from '../pages/Home';
 import UserLogin from '../pages/UserLogin';
 import UserSignUp from '../pages/UserSignUp';
 import Contact from '../pages/Contact';
+import Dashboard from '../pages/Dashboard';
+import { AuthProvider } from '../context/AuthContext';
+import PrivateRoute from "../routes/PrivateRoute"
+import Logout from './Logout';
 
 function App() {
-  const name = "Ali";
-
-
   return (
     <Router>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact/>}/>
-        <Route path="/userdisplay" element={<UserDisplay />} />
-        <Route path="/login" element={<UserLogin />} />
-        <Route path="/signup" element={<UserSignUp/>}/>
-      </Routes>
+      <AuthProvider>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/userdisplay" element={<UserDisplay />} />
+          <Route path="/login" element={<UserLogin />} />
+          <Route path="/signup" element={<UserSignUp />} />
+          <Route path="/logout" element={<Logout/>}/>
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+      </AuthProvider>
     </Router>
   )
 }

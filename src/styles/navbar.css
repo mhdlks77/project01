@@ -30,9 +30,11 @@ h5 {
 
 .link:hover{
     color: #F6B17A;
+    text-decoration: none;
     
 }
 
-.link:hover {
+.active{
+    color: #F6B17A;
     text-decoration: none;
 }
